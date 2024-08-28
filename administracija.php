@@ -16,7 +16,7 @@ if (isset($_POST['delete'])) {
 
     $target_file = null;
     if (!empty($_FILES['slika']['name'])) {
-        $target_dir = "uploads/";
+        $target_dir = "slike/";
         $target_file = $target_dir . basename($_FILES["slika"]["name"]);
         move_uploaded_file($_FILES["slika"]["tmp_name"], $target_file);
         $slika = basename($_FILES["slika"]["name"]);
