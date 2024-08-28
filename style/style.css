@@ -1,0 +1,70 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;   
+}
+
+.navbar {    
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    color: #333;
+}
+
+.navbar-nav .nav-link {
+    color: #333;
+}
+
+.hero-section {    
+    background: url('/zavrsni/content/images/hero.jpeg') no-repeat center center;
+    background-size: cover;
+    color: white;
+    padding: 100px 0;
+    text-align: center;
+}
+
+.hero-section h1 {
+    font-size: 3.5em;
+    margin-bottom: 20px;
+}
+
+.hero-section p {
+    font-size: 1.2em;
+}
+.article-card{
+    margin-bottom: 30px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: transform 0.3s;
+    text-align: left;
+}
+
+.article-card:hover {
+    transform: scale(1.02);
+}
+
+.footer {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.btn-admin {
+    position: absolute;
+    right: 50%;
+    top: -10px;
+    transition: .3s !important;
+}
+
+.btn-admin:hover {
+    top: 5px;
+    transform: scale(1.2);
+}
+

@@ -1,0 +1,37 @@
+.article-card {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.article-card:hover {
+    transform: scale(1.02);
+}
+
+.article-card img {
+    width: 100%;
+    height: auto;
+}
+
+.article-content {
+    padding: 15px;
+}
+
+.article-content h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.article-content p {
+    font-size: 1em;
+    color: #555;
+}
+.footer {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    margin-top: 20px;
+}
