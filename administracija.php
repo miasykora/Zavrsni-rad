@@ -1,6 +1,6 @@
 <?php
 include 'connect.php';
-define('UPLPATH', 'uploads/');
+define('UPLPATH', 'slike/');
 
 if (isset($_POST['delete'])) {
     $id = $_POST['id'];
