@@ -1,6 +1,5 @@
 <?php
 include 'connect.php';
-define('UPLPATH', 'slike/');
 
 if (isset($_POST['delete'])) {
     $id = $_POST['id'];
@@ -41,7 +40,7 @@ $result = mysqli_query($dbc, $query);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Administracija vijesti</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style/style.css">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
