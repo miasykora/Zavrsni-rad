@@ -1,21 +1,27 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+include 'connect.php';
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $naslov = $_POST['naslov'];
     $autor = $_POST['autor'];
     $sazetak = $_POST['sazetak'];
     $tekst = $_POST['tekst'];
     $kategorija = $_POST['kategorija'];
-    $slika = $_FILES['slika']['name'];
+    $arhiva = isset($_POST['prikazi']) ? 0 : 1;
+    $datum = date('Y-m-d');
 
-    $target_dir = "uploads/";
-    $target_file = $target_dir . basename($slika);
+    $target_dir = "slike/";
+    $target_file = $target_dir . basename($_FILES["slika"]["name"]);
     move_uploaded_file($_FILES["slika"]["tmp_name"], $target_file);
+    $slika = basename($_FILES["slika"]["name"]);
 
-    echo "<h2>" . htmlspecialchars($naslov) . "</h2>";
-    echo "<p><strong>Autor:</strong> " . htmlspecialchars($autor) . "</p>";
-    echo "<p><strong>Kratki sažetak:</strong> " . htmlspecialchars($sazetak) . "</p>";
-    echo "<p><strong>Tekst vijesti:</strong> " . nl2br(htmlspecialchars($tekst)) . "</p>";
-    echo "<p><strong>Kategorija:</strong> " . htmlspecialchars($kategorija) . "</p>";
-    echo "<img src='" . htmlspecialchars($target_file) . "' alt='" . htmlspecialchars($naslov) . "'>";
+    $query = "INSERT INTO vijesti (datum, naslov, autor, sazetak, tekst, slika, kategorija, arhiva) VALUES ('$datum', '$naslov', '$autor', '$sazetak', '$tekst', '$slika', '$kategorija', '$arhiva')";
+    
+    $result = mysqli_query($dbc, $query) or die('Error querying database.');
+
+    mysqli_close($dbc);
+
+    header("Location: index.php");
+    exit();
 }
 ?>
