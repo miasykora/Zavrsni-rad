@@ -1,30 +1,3 @@
-<?php
-include 'connect.php';
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $naslov = $_POST['naslov'];
-    $autor = $_POST['autor'];
-    $sazetak = $_POST['sazetak'];
-    $tekst = $_POST['tekst'];
-    $kategorija = $_POST['kategorija'];
-    $arhiva = isset($_POST['prikazi']) ? 0 : 1;
-    $datum = date('Y-m-d');
-
-    $target_dir = "uploads/";
-    $target_file = $target_dir . basename($_FILES["slika"]["name"]);
-    move_uploaded_file($_FILES["slika"]["tmp_name"], $target_file);
-    $slika = basename($_FILES["slika"]["name"]);
-
-    $query = "INSERT INTO vijesti (datum, naslov, autor, sazetak, tekst, slika, kategorija, arhiva) VALUES ('$datum', '$naslov', '$autor', '$sazetak', '$tekst', '$slika', '$kategorija', '$arhiva')";
-    
-    $result = mysqli_query($dbc, $query) or die('Error querying database.');
-
-    mysqli_close($dbc);
-
-    header("Location: index.php");
-    exit();
-}
-?>
 
 <!DOCTYPE html>
 <html lang="hr">
@@ -51,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     <main class="container mt-4">
         <h2>Unos nove vijesti ili proizvoda</h2>
-        <form name="unos" action="unos.php" method="POST" enctype="multipart/form-data">
+        <form name="unos" action="skripta.php" method="POST" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="naslov">Naslov:</label>
                 <input type="text" class="form-control" id="naslov" name="naslov" required>
