@@ -2,7 +2,6 @@
 session_start();
 include 'connect.php';
 
-
 $kategorija = isset($_GET['kategorija']) ? $_GET['kategorija'] : '';
 
 $query = "SELECT * FROM vijesti WHERE kategorija=? AND arhiva=0 ORDER BY id DESC" ;
